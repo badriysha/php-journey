@@ -1,0 +1,17 @@
+{
+    "name": "badriysha/php-composer",
+    "description": "Belajar PHP Composer",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Badriysha\\PhpComposer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "badri yusron",
+            "email": "badriysha@gmail.com"
+        }
+    ],
+    "require": {}
+}
