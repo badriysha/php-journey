@@ -2,17 +2,20 @@
 
 namespace Badriysha\Test;
 
+use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
 class CounterTest extends TestCase {
     public function testCounter() {
         $counter = new Counter();
+
         $counter->increment();
+        Assert::assertEquals(1, $counter->getCounter());
 
-        echo $counter->getCounter() . PHP_EOL;
-    }
+        $counter->increment();
+        $this->assertEquals(2, $counter->getCounter());
 
-    public function testOther() {
-        echo "Hello test" . PHP_EOL;
+        $counter->increment();
+        self::assertEquals(3, $counter->getCounter());
     }
 }
