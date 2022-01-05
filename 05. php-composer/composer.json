@@ -2,6 +2,10 @@
     "name": "badriysha/php-composer",
     "description": "Belajar PHP Composer",
     "type": "project",
+    "scripts": {
+        "jalankan-server": "php -S localhost:8080",
+        "hello": "echo 'Hello Composer'"
+    },
     "autoload": {
         "psr-4": {
             "PhpComposer\\": "src/"
