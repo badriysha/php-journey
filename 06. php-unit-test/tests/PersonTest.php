@@ -16,4 +16,13 @@ class PersonTest extends TestCase
         self::expectException(\Exception::class);
         $person->sayHello(null);
     }
+
+    public function testGoodbyeSuccess()
+    {
+        $person = new Person("Yusron");
+        self::expectOutputString('Good bye Badri' . PHP_EOL);
+        $person->sayGoodBye("Badri");
+    }
+
+
 }
