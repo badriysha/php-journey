@@ -37,6 +37,9 @@ class CounterTest extends TestCase {
      * @test
      */
     public function increment() {
+        // cara skip test
+        self::markTestSkipped("Ada error yang belum selesai");
+
         $this->counter->increment();
         Assert::assertEquals(1, $this->counter->getCounter());
     }
@@ -70,4 +73,23 @@ class CounterTest extends TestCase {
     {
         echo "after" . PHP_EOL;
     }
+
+    /**
+     * @requires OSFAMILY Windows
+     */
+    public function testOnlyInWindows()
+    {
+        self::assertTrue(true, "Hanya untuk Windows");
+    }
+
+    /**
+     * @requires PHP >= 8
+     * @requires OSFAMILY Darwin
+     */
+    public function testOnlyMacAndPHP8()
+    {
+        self::assertTrue(true, "Hanya untuk Mac OS dan PHP 8");
+    }
+
+
 }
