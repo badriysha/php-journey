@@ -10,7 +10,7 @@ class ProductService
 
     public function register(Product $product) : Product
     {
-        if ($this->repository->findById() != null) {
+        if ($this->repository->findById($product->getId()) != null) {
             throw new \Exception("Product is already exist");
         }
 

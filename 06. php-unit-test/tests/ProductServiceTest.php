@@ -62,5 +62,35 @@ class ProductServiceTest extends TestCase
         self::assertEquals("3", $this->repository->findById("3")->getId());
     }
 
+    public function testRegisterSuccess()
+    {
+        $this->repository->method("findById")->willReturn(null);
+        $this->repository->method("save")->willReturnArgument(0);
+
+        $product = new Product();
+        $product->setId("1");
+        $product->setName("Contoh");
+
+        $result = $this->service->register($product);
+
+        self::assertEquals($product->getId(), $result->getId());
+        self::assertEquals($product->getName(), $result->getName());
+    }
+
+    public function testRegisterException()
+    {
+        $this->expectException(\Exception::class);
+
+        $productInDB = new Product();
+        $productInDB->setId(1);
+
+        $this->repository->method("findById")->willReturn($productInDB);
+
+        $product = new Product();
+        $product->setId("1");
+
+        $this->service->register($product);
+    }
+
 
 }
